@@ -6,15 +6,16 @@
 
 
 body {
-    background-color: #fffaf0;
+    background-color: #e1bff5;
     font-family: Arial, sans-serif;
 }
 
-h1 {
-    color: darkgreen;
+.formulario-inicio h2 {
+    color: black;
+    font-size: 24px;
+    text-align: center;
+    font-family: Tahoma, sans-serif;
 }
-
-
 
 .formulario-inicio{
     width: 30%;
@@ -22,8 +23,52 @@ h1 {
     margin-left: 510px;
     margin-top: 80px;
     padding: 30px;
-    background-color: #d8bfd8;
+    background-color: #9370db;
     border-radius: 30px;
+}
+
+.usuario{
+    color: black;
+    margin-top: 60px;
+    text-align: center;
+    font-size: 24px;
+}
+
+#usuario{
+    border: 2px solid #333;
+    padding: 10px;
+    font-size: 16px;
+    color: #222;
+    margin-top: 15px;
+    background-color: #f9f9f9;
+    border-radius: 18px;
+}
+
+.correo{
+    color: black;
+    margin-top: 60px;
+    text-align: center;
+    font-size: 24px;
+}
+
+#correo{
+    border: 2px solid #333;
+    padding: 10px;
+    font-size: 16px;
+    color: #222;
+    margin-top: 15px;
+    background-color: #f9f9f9;
+    border-radius: 18px;
+}
+
+#entrar {
+    background-color: #4CAF50; /* verde bonito */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 

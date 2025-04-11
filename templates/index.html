@@ -9,13 +9,19 @@
     <div class="formulario-inicio">
         <h2>Iniciar sesión</h2>
         <form action="/login" method="post">
-            <label for="usuario">Usuario:</label>
+            <div class="usuario">
+            <label for="usuario" class="label-usuario">Usuario:</label>
+            <br>
             <input type="text" id="usuario" name="usuario" required>
+            </div>
 
+            <div class="correo">
             <label for="correo">Correo:</label>
+            <br>
             <input type="email" id="correo" name="correo" required>
+            </div>
 
-            <button type="submit">Entrar</button>
+            <button type="submit" id="entrar">Entrar</button>
         </form>
     </div>
 </body>
