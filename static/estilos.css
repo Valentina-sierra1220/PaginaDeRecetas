@@ -6,10 +6,23 @@
 
 
 body {
-    background-color: #f0f0f0;
+    background-color: #fffaf0;
     font-family: Arial, sans-serif;
 }
 
 h1 {
     color: darkgreen;
 }
+
+
+
+.formulario-inicio{
+    width: 40%;
+    height: 300px;
+    margin-left: 440px;
+    padding: 30px;
+    background-color: #d8bfd8;
+    border-radius: 10px;
+}
+
+
