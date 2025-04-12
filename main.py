@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 #clase de formulario de inicio de sesión
-class Sesion:
+class InicioSesion:
     def inicio(self):
         return render_template('index.html')
 
@@ -16,7 +16,7 @@ class Sesion:
         return render_template('pagina.html', usuario=usuario, correo=correo)
 
 
-sesion = Sesion()
+inicio = InicioSesion()
 app.route('/')(sesion.inicio)
 app.route('/login', methods=['POST'])(sesion.login)
 
