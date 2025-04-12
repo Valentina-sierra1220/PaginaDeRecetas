@@ -4,9 +4,11 @@ app = Flask(__name__)
 
 #desde aqui la logica
 
+
+#clase de formulario de inicio de sesión
 class Sesion:
     def inicio(self):
-        return render_template('inicio.html')
+        return render_template('index.html')
 
     def login(self):
         usuario = request.form['usuario']
@@ -17,6 +19,14 @@ class Sesion:
 sesion = Sesion()
 app.route('/')(sesion.inicio)
 app.route('/login', methods=['POST'])(sesion.login)
+
+
+#clase para manejar las recetas
+class Receta:
+    def __init__(self, nombre, ingredientes, pasos):
+        self.nombre = nombre
+        self.ingredientes = ingredientes
+        self.pasos = pasos
 
 if __name__ == '__main__':
     app.run(debug=True)
