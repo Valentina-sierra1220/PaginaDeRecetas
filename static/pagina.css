@@ -4,3 +4,15 @@
   box-sizing: border-box;
 }
 
+h2{
+     text-align: center;
+     font-size: 35px;
+}
+
+#busqueda{
+    height: 60px;
+    width: 95%;
+    font-size: 20px;
+    margin-left: 40px;
+    border-radius: 20px;
+}
