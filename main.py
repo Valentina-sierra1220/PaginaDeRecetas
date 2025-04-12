@@ -28,6 +28,12 @@ class Receta:
         self.ingredientes = ingredientes
         self.pasos = pasos
 
+recetas_disponibles = [
+    Receta("Ensalada", ["lechuga", "tomate", "zanahoria"], ["Lavar", "Cortar", "Mezclar"]),
+    Receta("Tortilla", ["huevo", "papas", "sal"], ["Pelar", "Freír", "Batir"]),
+    Receta("Sopa", ["agua", "pollo", "sal", "zanahoria"], ["Hervir", "Cocinar"]),
+]
+
 if __name__ == '__main__':
     app.run(debug=True)
 
