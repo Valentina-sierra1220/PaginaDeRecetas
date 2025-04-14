@@ -50,6 +50,7 @@ class Buscador:
 
 
 class AdministradorRecetas:
+    def __init__(self):
     recetas_disponibles = [
         Receta("Ensalada", ["lechuga", "tomate", "zanahoria"], ["Lavar", "Cortar", "Mezclar"]),
         Receta("Tortilla", ["huevo", "papas", "sal"], ["Pelar", "Freír", "Batir"]),
