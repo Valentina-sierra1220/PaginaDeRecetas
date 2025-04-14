@@ -39,7 +39,7 @@ recetas_disponibles = [
 ]
 
 class Buscador:
-    def buscar(self):
+    def buscar_por_ingrediente(self):
         termino = request.form['busqueda'].lower()  #lo que escribió el usuario
         resultados = []
         for receta in self.recetas:
