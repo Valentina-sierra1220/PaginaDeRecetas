@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <title>pagina principal</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='pagina.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
  <header>
-     <input type="text" id="busqueda" name="usuario" placeholder="¿Qué hay en tu nevera?" >
+     <form action="/buscar" method="post">
+     <input type="text" id="busqueda" name="busqueda" placeholder="¿Qué hay en tu nevera?" >
+         <button type="submit">Buscar</button>
+      <i class="fa-brands fa-sistrix"></i>
+     </form>
  </header>
     <h2>¡Hola, {{ usuario }}!</h2>
 
