@@ -50,6 +50,12 @@ class Buscador:
 
 
 class AdministradorRecetas:
+    recetas_disponibles = [
+        Receta("Ensalada", ["lechuga", "tomate", "zanahoria"], ["Lavar", "Cortar", "Mezclar"]),
+        Receta("Tortilla", ["huevo", "papas", "sal"], ["Pelar", "Freír", "Batir"]),
+        Receta("Sopa", ["agua", "pollo", "sal", "zanahoria"], ["Hervir", "Cocinar"]),
+    ]
+
 
 
 if __name__ == '__main__':
