@@ -52,7 +52,7 @@ class Buscador:
 
 class AdministradorRecetas:
     def __init__(self):
-    self.app = Flask(__name__)
+        self.app = Flask(__name__)
     recetas_disponibles = [
         Receta("Ensalada", ["lechuga", "tomate", "zanahoria"], ["Lavar", "Cortar", "Mezclar"]),
         Receta("Tortilla", ["huevo", "papas", "sal"], ["Pelar", "Freír", "Batir"]),
@@ -63,6 +63,9 @@ class AdministradorRecetas:
     administrador = AdministradorRecetas()
 
 
+
+
+class Controlador:
 
 if __name__ == '__main__':
     app.run(debug=True)
