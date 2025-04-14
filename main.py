@@ -49,6 +49,8 @@ class Buscador:
                 return resultados
 
 
+class AdministradorRecetas:
+
 
 if __name__ == '__main__':
     app.run(debug=True)
