@@ -17,8 +17,8 @@ class InicioSesion:
 
 
 inicio = InicioSesion()
-app.route('/')(sesion.inicio)
-app.route('/login', methods=['POST'])(sesion.login)
+app.route('/')(inicio.inicio)
+app.route('/login', methods=['POST'])(inicio.login)
 
 
 #clase para manejar las recetas
@@ -33,6 +33,10 @@ recetas_disponibles = [
     Receta("Tortilla", ["huevo", "papas", "sal"], ["Pelar", "Freír", "Batir"]),
     Receta("Sopa", ["agua", "pollo", "sal", "zanahoria"], ["Hervir", "Cocinar"]),
 ]
+
+class Buscador:
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
