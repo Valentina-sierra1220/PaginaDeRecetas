@@ -28,6 +28,9 @@ class Receta:
         self.ingredientes = ingredientes
         self.pasos = pasos
 
+    def obtener_ingredientes(self):
+        return self.ingredientes
+
 recetas_disponibles = [
     Receta("Ensalada", ["lechuga", "tomate", "zanahoria"], ["Lavar", "Cortar", "Mezclar"]),
     Receta("Tortilla", ["huevo", "papas", "sal"], ["Pelar", "Freír", "Batir"]),
