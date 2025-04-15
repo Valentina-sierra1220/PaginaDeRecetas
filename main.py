@@ -76,7 +76,8 @@ class Controlador:
 
     def buscar(self):
         termino = request.form['busqueda'].lower()
-        resultados = self.administrador.obtener_resultados_busqueda()
+        resultados = self.administrador.obtener_resultados_busqueda(termino)
+        return render_template('pagina.html', usuario="Invitado", recetas=resultados)
 
 
 if __name__ == '__main__':
