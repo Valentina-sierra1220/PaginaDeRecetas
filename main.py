@@ -39,6 +39,9 @@ recetas_disponibles = [
 ]
 
 class Buscador:
+    def __init__(self, recetas):
+        self.recetas = recetas
+
     def buscar_por_ingrediente(self, termino):
         resultados = []
         for receta in self.recetas:
@@ -78,6 +81,11 @@ class Controlador:
         termino = request.form['busqueda'].lower()
         resultados = self.administrador.obtener_resultados_busqueda(termino)
         return render_template('pagina.html', usuario="Invitado", recetas=resultados)
+
+controlador = Controlador()
+controlador.configurar_rutas()
+
+
 
 
 if __name__ == '__main__':
