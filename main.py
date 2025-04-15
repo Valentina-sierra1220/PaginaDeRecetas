@@ -74,6 +74,9 @@ class Controlador:
         app.route('/login', methods=['POST'])(self.inicio.login)
         app.route('/buscar', methods=['POST'])(self.buscar)
 
+    def buscar(self):
+        termino = request.form['busqueda'].lower()
+
 if __name__ == '__main__':
     app.run(debug=True)
 
