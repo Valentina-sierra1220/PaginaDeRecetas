@@ -13,12 +13,9 @@ class InicioSesion:
     def login(self):
         usuario = request.form['usuario']
         correo = request.form['correo']
-        return render_template('pagina.html', usuario=usuario, correo=correo)
+        return render_template('pagina.html', usuario=usuario, correo=correo, recetas=None, busqueda_realizada=False)
 
 
-inicio = InicioSesion()
-app.route('/')(inicio.inicio)
-app.route('/login', methods=['POST'])(inicio.login)
 
 
 
@@ -44,11 +41,16 @@ class Buscador:
 
     def buscar_por_ingrediente(self, termino):
         resultados = []
+        terminos = [t.strip() for t in termino.split(',')]
         for receta in self.recetas:
             for ingrediente in receta.obtener_ingredientes():
-                if termino in ingrediente.lower():
-                    resultados.append(receta)
-                    break
+                for t in terminos:
+                    if t in ingrediente.lower():
+                        resultados.append(receta)
+                        break
+                else:
+                    continue
+                break
         return resultados
 
 
@@ -80,7 +82,8 @@ class Controlador:
     def buscar(self):
         termino = request.form['busqueda'].lower()
         resultados = self.administrador.obtener_resultados_busqueda(termino)
-        return render_template('pagina.html', usuario="Invitado", recetas=resultados)
+        return render_template('pagina.html', usuario="Invitado", recetas=resultados, busqueda_realizada=True)
+
 
 controlador = Controlador()
 controlador.configurar_rutas()
