@@ -49,7 +49,7 @@ class Buscador:
                 if termino in ingrediente.lower():
                     resultados.append(receta)
                     break
-                return resultados
+        return resultados
 
 
 class AdministradorRecetas:
