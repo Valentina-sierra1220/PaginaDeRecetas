@@ -20,7 +20,16 @@
     {% if recetas %}
         <h3>Resultados de la búsqueda:</h3>
         {% for receta in recetas %}
-
+            <div class="receta">
+                <h4>{{ receta.nombre }}</h4>
+                <p><strong>Ingredientes:</strong> {{ receta.ingredientes|join(', ') }}</p>
+                <p><strong>Pasos:</strong> {{ receta.pasos|join(', ') }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No se encontraron recetas con ese ingrediente.</p>
+    {% endif %}
+{% endif %}
 
 
 
