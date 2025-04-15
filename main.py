@@ -58,12 +58,16 @@ class AdministradorRecetas:
     ]
     self.buscador = Buscador(self.recetas)
 
-
+    def obtener_resultados_busqueda(self, termino):
+        return self.buscador.buscar_por_ingrediente(termino)
 
 
 
 
 class Controlador:
+    def __init__(self):
+        self.inicio = InicioSesion()
+        self.administrador = AdministradorRecetas()
 
 if __name__ == '__main__':
     app.run(debug=True)
