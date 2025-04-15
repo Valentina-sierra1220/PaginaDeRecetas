@@ -76,6 +76,8 @@ class Controlador:
 
     def buscar(self):
         termino = request.form['busqueda'].lower()
+        resultados = self.administrador.obtener_resultados_busqueda()
+
 
 if __name__ == '__main__':
     app.run(debug=True)
