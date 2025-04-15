@@ -58,8 +58,8 @@ class AdministradorRecetas:
             Receta("Ensalada", ["lechuga", "tomate", "zanahoria"], ["Lavar", "Cortar", "Mezclar"]),
             Receta("Tortilla", ["huevo", "papas", "sal"], ["Pelar", "Freír", "Batir"]),
             Receta("Sopa", ["agua", "pollo", "sal", "zanahoria"], ["Hervir", "Cocinar"]),
-    ]
-    self.buscador = Buscador(self.recetas)
+        ]
+        self.buscador = Buscador(self.recetas)
 
     def obtener_resultados_busqueda(self, termino):
         return self.buscador.buscar_por_ingrediente(termino)
