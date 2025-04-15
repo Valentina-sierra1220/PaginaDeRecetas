@@ -69,6 +69,11 @@ class Controlador:
         self.inicio = InicioSesion()
         self.administrador = AdministradorRecetas()
 
+    def configurar_rutas(self):
+        app.route('/')(self.inicio.inicio)
+        app.route('/login', methods=['POST'])(self.inicio.login)
+        app.route('/buscar', methods=['POST'])(self.buscar)
+
 if __name__ == '__main__':
     app.run(debug=True)
 
