@@ -84,6 +84,11 @@ class Controlador:
         resultados = self.administrador.obtener_resultados_busqueda(termino)
         return render_template('pagina.html', usuario="Invitado", recetas=resultados, busqueda_realizada=True)
 
+    def mostrar_receta(self, id):
+        id = int(id)
+        receta = self.administrador.recetas[id]
+        return render_template('detalle.html', receta=receta)
+
 
 controlador = Controlador()
 controlador.configurar_rutas()
