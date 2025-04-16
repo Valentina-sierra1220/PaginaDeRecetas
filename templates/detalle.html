@@ -6,5 +6,10 @@
 </head>
 <body>
 
+<h2>{{ receta.nombre }}</h2>
+    <p><strong>Ingredientes:</strong> {{ receta.ingredientes|join(', ') }}</p>
+    <p><strong>Pasos:</strong> {{ receta.pasos|join(', ') }}</p>
+    <a href="/">Volver</a>
+
 </body>
 </html>
