@@ -78,6 +78,8 @@ class Controlador:
         app.route('/')(self.inicio.inicio)
         app.route('/login', methods=['POST'])(self.inicio.login)
         app.route('/buscar', methods=['POST'])(self.buscar)
+        app.route('/receta/<id>')(self.mostrar_receta)
+        app.route('/batidos')(self.mostrar_batidos)
 
     def buscar(self):
         termino = request.form['busqueda'].lower()
@@ -88,6 +90,9 @@ class Controlador:
         id = int(id)
         receta = self.administrador.recetas[id]
         return render_template('detalle.html', receta=receta)
+
+    def mostrar_batidos(self):
+        return render_template('batidos.html')
 
 
 controlador = Controlador()
