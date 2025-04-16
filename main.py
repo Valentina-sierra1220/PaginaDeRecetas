@@ -80,6 +80,8 @@ class Controlador:
         app.route('/buscar', methods=['POST'])(self.buscar)
         app.route('/receta/<id>')(self.mostrar_receta)
         app.route('/batidos')(self.mostrar_batidos)
+        app.route('/postres')(self.mostrar_postres)
+        app.route('/salsas')(self.mostrar_salsas)
 
     def buscar(self):
         termino = request.form['busqueda'].lower()
@@ -91,8 +93,15 @@ class Controlador:
         receta = self.administrador.recetas[id]
         return render_template('detalle.html', receta=receta)
 
+#en la pagina principal la parte de inspirarme
     def mostrar_batidos(self):
         return render_template('batidos.html')
+
+    def mostrar_postres(self):
+        return render_template('postres.html')
+
+    def mostrar_salsas(self):
+        return render_template('salsas.html')
 
 
 controlador = Controlador()
