@@ -9,10 +9,13 @@
 <body>
  <header>
      <form action="/buscar" method="post">
-     <input type="text" id="busqueda" name="busqueda" placeholder="¿Qué hay en tu nevera?" >
-         <button type="submit">Buscar</button>
-      <i class="fa-brands fa-sistrix"></i>
-     </form>
+    <div class="campo-busqueda">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="busqueda" name="busqueda" placeholder="¿Qué hay en tu nevera?">
+    </div>
+    <button type="submit">Buscar</button>
+</form>
+
  </header>
     <h2>¡Hola, {{ usuario }}!</h2>
 
@@ -32,7 +35,10 @@
 {% endif %}
 
 
-
+<div class="batidos">
+    <h1>Batidos y Refrescos</h1>
+    <img src="{{ url_for('static', filename='imagenes/batido.jpeg') }}" alt="Imagen de batido" class="img-batido">
+</div>
 
 
 </body>

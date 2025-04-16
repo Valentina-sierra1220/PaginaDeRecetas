@@ -15,4 +15,44 @@ h2{
     font-size: 20px;
     margin-left: 40px;
     border-radius: 20px;
+    padding-left: 40px;
 }
+
+i{
+    margin-left: 60px;
+    font-size: 20px;
+    color: #333;
+    padding-top: -17px;
+}
+
+.campo-busqueda {
+    position: relative;
+    display: inline-block;
+    width: 95%;
+    margin-left: 40px;
+}
+
+i {
+    position: absolute;
+    top: 35%;
+    margin-left: 49px;
+    font-size: 20px;
+    color: #008080;
+}
+
+.batidos{
+    background-color: red;
+    width: 25%;
+    height: 320px;
+    border-radius: 18px;
+}
+
+.img-batido {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+
+
