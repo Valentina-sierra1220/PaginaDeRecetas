@@ -1,23 +1,24 @@
+<!-- templates/pagina.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>pagina principal</title>
+    <title>Resultados</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='pagina.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
- <header>
-     <form action="/buscar" method="post">
-    <div class="campo-busqueda">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="busqueda" name="busqueda" placeholder="¿Qué hay en tu nevera?">
-    </div>
-    <button type="submit">Buscar</button>
-</form>
 
- </header>
-    <h2>¡Hola, {{ usuario }}!</h2>
+<header>
+    <form action="/buscar" method="post">
+        <div class="campo-busqueda">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="busqueda" name="busqueda" placeholder="¿Qué hay en tu nevera?">
+        </div>
+        <button type="submit">Buscar</button>
+    </form>
+</header>
+
+<h2>¡Hola, {{ usuario }}!</h2>
 
 {% if busqueda_realizada %}
     {% if recetas %}
@@ -33,28 +34,6 @@
         <p>No se encontraron recetas con ese ingrediente.</p>
     {% endif %}
 {% endif %}
-
-
-<div class="batidos">
-    <h1>Batidos y Refrescos</h1>
-    <a href="{{ url_for('mostrar_batidos') }}">
-    <img src="{{ url_for('static', filename='imagenes/batido.jpeg') }}" alt="Imagen de batido" class="img-batido">
-</a>
-</div>
-
-<div class="postres">
-    <h1>postres</h1>
-    <a href="{{ url_for('mostrar_postres') }}">
-    <img src="{{ url_for('static', filename='imagenes/postre.jpeg') }}" alt="Imagen de postre" class="img-postre">
-</a>
-</div>
-
-<div class="salsas">
-    <h1>salsas</h1>
-    <a href="{{ url_for('mostrar_salsas') }}">
-    <img src="{{ url_for('static', filename='imagenes/salsas.jpg') }}" alt="Imagen de salsas" class="img-salsa">
-</a>
-</div>
 
 </body>
 </html>

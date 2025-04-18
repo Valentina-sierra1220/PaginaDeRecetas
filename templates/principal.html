@@ -1,0 +1,44 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pagina.css') }}">
+</head>
+<body>
+<header>
+    <form action="/buscar" method="post">
+        <div class="campo-busqueda">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="busqueda" name="busqueda" placeholder="¿Qué hay en tu nevera?">
+        </div>
+        <button type="submit">Buscar</button>
+    </form>
+</header>
+
+<h2>¡Hola, {{ usuario }}!</h2>
+
+<div class="batidos">
+    <h1>Batidos y Refrescos</h1>
+    <a href="{{ url_for('mostrar_batidos') }}">
+        <img src="{{ url_for('static', filename='imagenes/batido.jpeg') }}" class="img-batido">
+    </a>
+</div>
+
+<div class="postres">
+    <h1>Postres</h1>
+    <a href="{{ url_for('mostrar_postres') }}">
+        <img src="{{ url_for('static', filename='imagenes/postre.jpeg') }}" class="img-postre">
+    </a>
+</div>
+
+<div class="salsas">
+    <h1>Salsas</h1>
+    <a href="{{ url_for('mostrar_salsas') }}">
+        <img src="{{ url_for('static', filename='imagenes/salsas.jpg') }}" class="img-salsa">
+    </a>
+</div>
+
+</body>
+</html>
