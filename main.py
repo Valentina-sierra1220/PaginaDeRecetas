@@ -26,6 +26,7 @@ class Receta:
         self.nombre = nombre
         self.ingredientes = ingredientes
         self.pasos = pasos
+        self.imagen = imagen
 
     def obtener_ingredientes(self):
         return self.ingredientes
