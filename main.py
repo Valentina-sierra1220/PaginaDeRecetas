@@ -13,7 +13,8 @@ class InicioSesion:
     def login(self):
         usuario = request.form['usuario']
         correo = request.form['correo']
-        return render_template('pagina.html', usuario=usuario, correo=correo, recetas=None, busqueda_realizada=False)
+        return render_template('principal.html', usuario=usuario)
+
 
 
 
