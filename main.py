@@ -22,7 +22,7 @@ class InicioSesion:
 
 #clase para manejar las recetas
 class Receta:
-    def __init__(self, nombre, ingredientes, pasos):
+    def __init__(self, nombre, ingredientes, pasos, imagen):
         self.nombre = nombre
         self.ingredientes = ingredientes
         self.pasos = pasos
@@ -31,11 +31,7 @@ class Receta:
     def obtener_ingredientes(self):
         return self.ingredientes
 
-recetas_disponibles = [
-    Receta("Ensalada", ["lechuga", "tomate", "zanahoria"], ["Lavar", "Cortar", "Mezclar"]),
-    Receta("Tortilla", ["huevo", "papas", "sal"], ["Pelar", "Freír", "Batir"]),
-    Receta("Sopa", ["agua", "pollo", "sal", "zanahoria"], ["Hervir", "Cocinar"]),
-]
+
 
 class Buscador:
     def __init__(self, recetas):
@@ -59,9 +55,9 @@ class Buscador:
 class AdministradorRecetas:
     def __init__(self):
         self.recetas = [
-            Receta("Ensalada", ["lechuga", "tomate", "zanahoria"], ["Lavar", "Cortar", "Mezclar"]),
-            Receta("Tortilla", ["huevo", "papas", "sal"], ["Pelar", "Freír", "Batir"]),
-            Receta("Sopa", ["agua", "pollo", "sal", "zanahoria"], ["Hervir", "Cocinar"]),
+            Receta("Ensalada", ["lechuga", "tomate", "zanahoria"], ["Lavar", "Cortar", "Mezclar"],"salsas.jpg"),
+            Receta("Tortilla", ["huevo", "papas", "sal"], ["Pelar", "Freír", "Batir"],"salsas.jpg"),
+            Receta("Sopa", ["agua", "pollo", "sal", "zanahoria"], ["Hervir", "Cocinar"], "salsas.jpg"),
         ]
         self.buscador = Buscador(self.recetas)
 
@@ -90,10 +86,6 @@ class Controlador:
         resultados = self.administrador.obtener_resultados_busqueda(termino)
         return render_template('pagina.html', usuario="Invitado", recetas=resultados, busqueda_realizada=True)
 
-    def mostrar_receta(self, id):
-        id = int(id)
-        receta = self.administrador.recetas[id]
-        return render_template('detalle.html', receta=receta)
 
 #en la pagina principal la parte de inspirarme
     def mostrar_batidos(self):
