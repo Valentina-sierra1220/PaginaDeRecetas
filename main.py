@@ -79,6 +79,9 @@ class Controlador:
         app.route('/batidos')(self.mostrar_batidos)
         app.route('/postres')(self.mostrar_postres)
         app.route('/salsas')(self.mostrar_salsas)
+        app.route('/pizzas')(self.mostrar_pizzas)
+        app.route('/pastas')(self.mostrar_pastas)
+        app.route('/hamburguesas')(self.mostrar_hamburguesas)
 
     def buscar(self):
         termino = request.form['busqueda'].lower()
@@ -96,7 +99,14 @@ class Controlador:
     def mostrar_salsas(self):
         return render_template('salsas.html')
 
+    def mostrar_pizzas(self):
+        return render_template('pizzas.html')
 
+    def mostrar_pastas(self):
+        return render_template('pastas.html')
+
+    def mostrar_hamburguesas(self):
+        return render_template('hamburguesas.html')
 controlador = Controlador()
 controlador.configurar_rutas()
 

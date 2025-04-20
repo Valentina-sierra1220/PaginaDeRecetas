@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='pagina.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='principal.css') }}">
 </head>
 <body>
 <header>
@@ -39,6 +39,43 @@
         <img src="{{ url_for('static', filename='imagenes/salsas.jpg') }}" class="img-salsa">
     </a>
 </div>
+
+<div class="pizzas">
+    <h1>Pizzas</h1>
+    <a href="{{ url_for('mostrar_pizzas') }}">
+        <img src="{{ url_for('static', filename='imagenes/pizza.jpg') }}" class="img-pizza">
+    </a>
+</div>
+
+<div class="pastas">
+    <h1>Pastas</h1>
+    <a href="{{ url_for('mostrar_pastas') }}">
+        <img src="{{ url_for('static', filename='imagenes/pasta.jpg') }}" class="img-pasta">
+    </a>
+</div>
+
+<div class="hamburguesas">
+    <h1>Hamburguesas</h1>
+    <a href="{{ url_for('mostrar_hamburguesas') }}">
+        <img src="{{ url_for('static', filename='imagenes/hamburguesa.jpg') }}" class="img-hamburguesa">
+    </a>
+</div>
+
+<div class="fitness">
+    <h1>Salsas</h1>
+    <a href="{{ url_for('mostrar_salsas') }}">
+        <img src="{{ url_for('static', filename='imagenes/salsas.jpg') }}" class="img-salsa">
+    </a>
+</div>
+
+<div class="mexicano">
+    <h1>Salsas</h1>
+    <a href="{{ url_for('mostrar_salsas') }}">
+        <img src="{{ url_for('static', filename='imagenes/salsas.jpg') }}" class="img-salsa">
+    </a>
+</div>
+
+
 
 </body>
 </html>
