@@ -76,7 +76,6 @@ class Controlador:
         app.route('/')(self.inicio.inicio)
         app.route('/login', methods=['POST'])(self.inicio.login)
         app.route('/buscar', methods=['POST'])(self.buscar)
-        app.route('/receta/<id>')(self.mostrar_receta)
         app.route('/batidos')(self.mostrar_batidos)
         app.route('/postres')(self.mostrar_postres)
         app.route('/salsas')(self.mostrar_salsas)
