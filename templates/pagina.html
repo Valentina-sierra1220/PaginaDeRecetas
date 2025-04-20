@@ -23,13 +23,16 @@
 {% if busqueda_realizada %}
     {% if recetas %}
         <h3>Resultados de la búsqueda:</h3>
-        {% for receta in recetas %}
-            <div class="receta">
-                <h4>{{ receta.nombre }}</h4>
-                <p><strong>Ingredientes:</strong> {{ receta.ingredientes|join(', ') }}</p>
-                <p><strong>Pasos:</strong> {{ receta.pasos|join(', ') }}</p>
-            </div>
-        {% endfor %}
+        <div class="contenedor-recetas">
+            {% for receta in recetas %}
+                <div class="receta">
+                    <h4>{{ receta.nombre }}</h4>
+                    <img src="{{ url_for('static', filename='img/' + receta.imagen) }}" class="imagen-receta" width="200">
+                    <p><strong>Ingredientes:</strong> {{ receta.ingredientes|join(', ') }}</p>
+                    <p><strong>Pasos:</strong> {{ receta.pasos|join(', ') }}</p>
+                </div>
+            {% endfor %}
+        </div>
     {% else %}
         <p>No se encontraron recetas con ese ingrediente.</p>
     {% endif %}
