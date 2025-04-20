@@ -82,6 +82,8 @@ class Controlador:
         app.route('/pizzas')(self.mostrar_pizzas)
         app.route('/pastas')(self.mostrar_pastas)
         app.route('/hamburguesas')(self.mostrar_hamburguesas)
+        app.route('/fitness')(self.mostrar_fitness)
+        app.route('/mexicano')(self.mostrar_mexicanos)
 
     def buscar(self):
         termino = request.form['busqueda'].lower()
@@ -107,6 +109,13 @@ class Controlador:
 
     def mostrar_hamburguesas(self):
         return render_template('hamburguesas.html')
+
+    def mostrar_fitness(self):
+        return render_template('fitness.html')
+
+    def mostrar_mexicanos(self):
+        return render_template('mexicano.html')
+
 controlador = Controlador()
 controlador.configurar_rutas()
 
