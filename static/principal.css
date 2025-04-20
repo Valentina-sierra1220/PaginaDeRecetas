@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2{
+     text-align: center;
+     font-size: 35px;
+}
+
+#busqueda{
+    height: 60px;
+    width: 95%;
+    font-size: 20px;
+    margin-left: 40px;
+    border-radius: 20px;
+    padding-left: 40px;
+}
+
+i{
+    margin-left: 60px;
+    font-size: 20px;
+    color: #333;
+    padding-top: -17px;
+}
+
+.campo-busqueda {
+    position: relative;
+    display: inline-block;
+    width: 95%;
+    margin-left: 40px;
+}
+
+i {
+    position: absolute;
+    top: 35%;
+    margin-left: 49px;
+    font-size: 20px;
+    color: #008080;
+}
+
+.batidos{
+    background-color: red;
+    width: 25%;
+    border-radius: 18px;
+    height: 320px;
+    margin-left: 5%;
+    margin-top: 4%;
+}
+
+.img-batido {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.postres{
+    background-color: red;
+    width: 25%;
+    height: 320px;
+    border-radius: 18px;
+    margin-left: 37.5%;
+    margin-top: -21%;
+}
+
+.img-postre {
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+}
+
+
+.salsas{
+    background-color: red;
+    width: 25%;
+    height: 320px;
+    border-radius: 18px;
+    margin-left: 70%;
+    margin-top: -21%;
+}
+
+.img-salsa {
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+}
+
+
+
+.pizzas{
+    background-color: red;
+    width: 25%;
+    height: 320px;
+    border-radius: 18px;
+    margin-left: 5%;
+    margin-top: 10%;
+}
+
+.img-pizza {
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+}
+
+.pastas{
+    background-color: red;
+    width: 25%;
+    height: 320px;
+    border-radius: 18px;
+    margin-left: 37%;
+    margin-top: -21%;
+}
+
+.img-pasta {
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+}
+
+.hamburguesas{
+    background-color: red;
+    width: 25%;
+    height: 320px;
+    border-radius: 18px;
+    margin-left: 70%;
+    margin-top: -21.2%;
+}
+
+.img-hamburguesa {
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+}
+
+
+.fitness{
+    background-color: red;
+    width: 25%;
+    height: 320px;
+    border-radius: 18px;
+    margin-left: 5%;
+    margin-top: 10%;
+}
+
+.img-fitness {
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+}
