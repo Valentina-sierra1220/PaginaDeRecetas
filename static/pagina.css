@@ -30,3 +30,37 @@
 .detalles-receta ol {
     margin: 0 0 10px 20px;
 }
+
+
+
+
+
+
+.perfil-bola {
+    width: 50px;
+    height: 50px;
+    background-color: #ffbb33;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    font-size: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+header form {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
