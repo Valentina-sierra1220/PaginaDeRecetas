@@ -9,6 +9,10 @@
 <body>
 
 <header>
+    <div class="perfil">
+    <img src="{{ url_for('static', filename='imagenes/perfil.png') }}" alt="Perfil">
+</div>
+
     <form action="/buscar" method="post">
         <div class="campo-busqueda">
             <i class="fa-solid fa-magnifying-glass"></i>
