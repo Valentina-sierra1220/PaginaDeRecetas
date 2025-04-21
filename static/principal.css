@@ -148,3 +148,18 @@ i {
     height: 80%;
     margin-top: 10px;
 }
+
+.mexicanos{
+    background-color: red;
+    width: 25%;
+    height: 320px;
+    border-radius: 18px;
+    margin-left: 37%;
+    margin-top: -21%;
+}
+
+.img-mexicano {
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+}
