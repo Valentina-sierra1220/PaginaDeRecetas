@@ -41,7 +41,7 @@ i {
 }
 
 .batidos{
-    background-color: red;
+    background-color: #66cdaa;
     width: 25%;
     border-radius: 18px;
     height: 320px;
@@ -56,7 +56,7 @@ i {
 }
 
 .postres{
-    background-color: red;
+    background-color: #66cdaa;
     width: 25%;
     height: 320px;
     border-radius: 18px;
@@ -72,7 +72,7 @@ i {
 
 
 .salsas{
-    background-color: red;
+    background-color: #66cdaa;
     width: 25%;
     height: 320px;
     border-radius: 18px;
@@ -89,7 +89,7 @@ i {
 
 
 .pizzas{
-    background-color: red;
+    background-color: #66cdaa;
     width: 25%;
     height: 320px;
     border-radius: 18px;
@@ -104,7 +104,7 @@ i {
 }
 
 .pastas{
-    background-color: red;
+    background-color: #66cdaa;
     width: 25%;
     height: 320px;
     border-radius: 18px;
@@ -119,7 +119,7 @@ i {
 }
 
 .hamburguesas{
-    background-color: red;
+    background-color: #66cdaa;
     width: 25%;
     height: 320px;
     border-radius: 18px;
@@ -135,7 +135,7 @@ i {
 
 
 .fitness{
-    background-color: red;
+    background-color: #66cdaa;
     width: 25%;
     height: 320px;
     border-radius: 18px;
@@ -150,7 +150,7 @@ i {
 }
 
 .mexicanos{
-    background-color: red;
+    background-color: #66cdaa;
     width: 25%;
     height: 320px;
     border-radius: 18px;
@@ -165,7 +165,7 @@ i {
 }
 
 .desayunos{
-    background-color: red;
+    background-color: #66cdaa;
     width: 25%;
     height: 320px;
     border-radius: 18px;
@@ -189,5 +189,4 @@ i {
     align-items: center;
     justify-content: center;
     font-size: 22px;
-
 }
