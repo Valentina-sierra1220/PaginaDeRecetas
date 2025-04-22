@@ -9,6 +9,10 @@ h2{
      font-size: 35px;
 }
 
+body{
+    background-color: #fff8dc;
+}
+
 #busqueda{
     height: 60px;
     width: 95%;
@@ -47,6 +51,8 @@ i {
     height: 320px;
     margin-left: 5%;
     margin-top: 4%;
+    text-align: center;
+    font-family: cursive;
 }
 
 .img-batido {
@@ -62,6 +68,8 @@ i {
     border-radius: 18px;
     margin-left: 37.5%;
     margin-top: -21%;
+    text-align: center;
+    font-family: cursive;
 }
 
 .img-postre {
@@ -78,6 +86,8 @@ i {
     border-radius: 18px;
     margin-left: 70%;
     margin-top: -21%;
+    text-align: center;
+    font-family: cursive;
 }
 
 .img-salsa {
@@ -95,6 +105,8 @@ i {
     border-radius: 18px;
     margin-left: 5%;
     margin-top: 10%;
+    text-align: center;
+    font-family: cursive;
 }
 
 .img-pizza {
@@ -110,6 +122,8 @@ i {
     border-radius: 18px;
     margin-left: 37%;
     margin-top: -21%;
+    text-align: center;
+    font-family: cursive;
 }
 
 .img-pasta {
@@ -125,6 +139,8 @@ i {
     border-radius: 18px;
     margin-left: 70%;
     margin-top: -21.2%;
+    text-align: center;
+    font-family: cursive;
 }
 
 .img-hamburguesa {
@@ -141,6 +157,8 @@ i {
     border-radius: 18px;
     margin-left: 5%;
     margin-top: 10%;
+    text-align: center;
+    font-family: cursive;
 }
 
 .img-fitness {
@@ -156,6 +174,8 @@ i {
     border-radius: 18px;
     margin-left: 37%;
     margin-top: -21%;
+    text-align: center;
+    font-family: cursive;
 }
 
 .img-mexicano {
@@ -171,6 +191,8 @@ i {
     border-radius: 18px;
     margin-left: 70%;
     margin-top: -21%;
+    text-align: center;
+    font-family: cursive;
 }
 
 .img-desayuno {
