@@ -163,3 +163,18 @@ i {
     height: 80%;
     margin-top: 10px;
 }
+
+.desayunos{
+    background-color: red;
+    width: 25%;
+    height: 320px;
+    border-radius: 18px;
+    margin-left: 70%;
+    margin-top: -21%;
+}
+
+.img-desayuno {
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+}
