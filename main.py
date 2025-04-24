@@ -22,10 +22,11 @@ class InicioSesion:
 
 #clase para manejar las recetas
 class Receta:
-    def __init__(self, nombre, ingredientes, pasos, imagen):
+    def __init__(self, nombre, ingredientes, pasos, cantidades, imagen):
         self.nombre = nombre
         self.ingredientes = ingredientes
         self.pasos = pasos
+        self.cantidades = cantidades
         self.imagen = imagen
 
     def obtener_ingredientes(self):
@@ -58,6 +59,7 @@ class AdministradorRecetas:
             Receta("Ensalada", ["lechuga", "tomate", "zanahoria"], ["Lavar", "Cortar", "Mezclar"],"salsas.jpg"),
             Receta("Tortilla", ["huevo", "papas", "sal"], ["Pelar", "Freír", "Batir"],"salsas.jpg"),
             Receta("Sopa", ["agua", "pollo", "sal", "zanahoria"], ["Hervir", "Cocinar"], "salsas.jpg"),
+            Receta("Torta De Chocolate", ["huevo", "mantequilla", "chocolate negro", "azucar", "harina de trigo", "sal", "chocolate con leche", "nata liquida"], ["cantidades: Huevo ", "Cocinar"], [], "salsas.jpg"),
         ]
         self.buscador = Buscador(self.recetas)
 
@@ -85,6 +87,7 @@ class Controlador:
         app.route('/fitness')(self.mostrar_fitness)
         app.route('/mexicano')(self.mostrar_mexicanos)
         app.route('/desayunos')(self.mostrar_desayunos)
+        app.route('/perfil')(self.mostrar_perfil)
 
     def buscar(self):
         termino = request.form['busqueda'].lower()
@@ -119,6 +122,10 @@ class Controlador:
 
     def mostrar_desayunos(self):
         return render_template('desayunos.html')
+
+    def mostrar_perfil(self):
+        return render_template('perfil.html')
+
 controlador = Controlador()
 controlador.configurar_rutas()
 
