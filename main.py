@@ -4,6 +4,8 @@ app = Flask(__name__)
 
 #desde aqui la logica
 
+recetas_favoritas = []
+
 
 #clase de formulario de inicio de sesión
 class InicioSesion:
@@ -61,15 +63,15 @@ class AdministradorRecetas:
                 ["huevo", "mantequilla", "chocolate negro", "azúcar", "harina de trigo", "sal", "chocolate con leche",
                  "nata líquida"],
                 [
-                    "1. Precalienta el horno a 180°C.",
-                    "2. Coloca el chocolate en tu procesador de alimentos y rállalo durante varios segundos.",
-                    "3. Coloca 130 gramos de mantequilla cortada en trozos y el chocolate rallado en un cazo. Calienta a fuego suave hasta que el chocolate se funda.",
-                    "4. Vierte el chocolate fundido en un recipiente y añade el azúcar y las yemas de huevo. Mezcla hasta integrar.",
-                    "5. Añade la harina y mezcla hasta que no queden grumos.",
-                    "6. Monta las claras a punto de nieve con una pizca de sal. Mézclalas con el chocolate con movimientos envolventes.",
-                    "7. Engrasa un molde de unos 20 cm de diámetro y rellénalo con la mezcla. Hornea a 180°C durante 40 minutos con calor arriba y abajo.",
-                    "8. Para la cobertura, vierte el chocolate con leche, la nata líquida y el resto de la mantequilla en un cazo. Calienta a fuego medio hasta que se derrita.",
-                    "9. Esparce el chocolate por encima del bizcocho y deja que se enfríe. Decora al gusto."
+                    "Precalienta el horno a 180°C.",
+                    "Coloca el chocolate en tu procesador de alimentos y rállalo durante varios segundos.",
+                    "Coloca 130 gramos de mantequilla cortada en trozos y el chocolate rallado en un cazo. Calienta a fuego suave hasta que el chocolate se funda.",
+                    "Vierte el chocolate fundido en un recipiente y añade el azúcar y las yemas de huevo. Mezcla hasta integrar.",
+                    "Añade la harina y mezcla hasta que no queden grumos.",
+                    "Monta las claras a punto de nieve con una pizca de sal. Mézclalas con el chocolate con movimientos envolventes.",
+                    "Engrasa un molde de unos 20 cm de diámetro y rellénalo con la mezcla. Hornea a 180°C durante 40 minutos con calor arriba y abajo.",
+                    "Para la cobertura, vierte el chocolate con leche, la nata líquida y el resto de la mantequilla en un cazo. Calienta a fuego medio hasta que se derrita.",
+                    "Esparce el chocolate por encima del bizcocho y deja que se enfríe. Decora al gusto."
                 ],
                 [
                     "Huevos: 6 unidades",
