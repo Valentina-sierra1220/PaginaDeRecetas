@@ -1,13 +1,11 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-#desde aqui la logica
-
+# Lista para las recetas favoritas
 recetas_favoritas = []
 
-
-#clase de formulario de inicio de sesión
+# Clase de formulario de inicio de sesión
 class InicioSesion:
     def inicio(self):
         return render_template('index.html')
@@ -17,12 +15,7 @@ class InicioSesion:
         correo = request.form['correo']
         return render_template('principal.html', usuario=usuario)
 
-
-
-
-
-
-#clase para manejar las recetas
+# Clase para manejar las recetas
 class Receta:
     def __init__(self, nombre, ingredientes, pasos, cantidades, imagen):
         self.nombre = nombre
@@ -33,8 +26,6 @@ class Receta:
 
     def obtener_ingredientes(self):
         return self.ingredientes
-
-
 
 class Buscador:
     def __init__(self, recetas):
@@ -54,14 +45,12 @@ class Buscador:
                 break
         return resultados
 
-
 class AdministradorRecetas:
     def __init__(self):
         self.recetas = [
             Receta(
                 "Torta De Chocolate",
-                ["huevo", "mantequilla", "chocolate negro", "azúcar", "harina de trigo", "sal", "chocolate con leche",
-                 "nata líquida"],
+                ["huevo", "mantequilla", "chocolate negro", "azúcar", "harina de trigo", "sal", "chocolate con leche", "nata líquida"],
                 [
                     "Precalienta el horno a 180°C.",
                     "Coloca el chocolate en tu procesador de alimentos y rállalo durante varios segundos.",
@@ -91,7 +80,6 @@ class AdministradorRecetas:
     def obtener_resultados_busqueda(self, termino):
         return self.buscador.buscar_por_ingrediente(termino)
 
-
 class Controlador:
     def __init__(self):
         self.inicio = InicioSesion()
@@ -101,15 +89,7 @@ class Controlador:
         app.route('/')(self.inicio.inicio)
         app.route('/login', methods=['POST'])(self.inicio.login)
         app.route('/buscar', methods=['POST'])(self.buscar)
-        app.route('/batidos')(self.mostrar_batidos)
-        app.route('/postres')(self.mostrar_postres)
-        app.route('/salsas')(self.mostrar_salsas)
-        app.route('/pizzas')(self.mostrar_pizzas)
-        app.route('/pastas')(self.mostrar_pastas)
-        app.route('/hamburguesas')(self.mostrar_hamburguesas)
-        app.route('/fitness')(self.mostrar_fitness)
-        app.route('/mexicano')(self.mostrar_mexicanos)
-        app.route('/desayunos')(self.mostrar_desayunos)
+        app.route('/guardar/<nombre>', methods=['POST'])(self.guardar_receta)
         app.route('/perfil')(self.mostrar_perfil)
 
     def buscar(self):
@@ -117,46 +97,18 @@ class Controlador:
         resultados = self.administrador.obtener_resultados_busqueda(termino)
         return render_template('pagina.html', usuario="Invitado", recetas=resultados, busqueda_realizada=True)
 
-
-#en la pagina principal la parte de inspirarme
-    def mostrar_batidos(self):
-        return render_template('batidos.html')
-
-    def mostrar_postres(self):
-        return render_template('postres.html')
-
-    def mostrar_salsas(self):
-        return render_template('salsas.html')
-
-    def mostrar_pizzas(self):
-        return render_template('pizzas.html')
-
-    def mostrar_pastas(self):
-        return render_template('pastas.html')
-
-    def mostrar_hamburguesas(self):
-        return render_template('hamburguesas.html')
-
-    def mostrar_fitness(self):
-        return render_template('fitness.html')
-
-    def mostrar_mexicanos(self):
-        return render_template('mexicano.html')
-
-    def mostrar_desayunos(self):
-        return render_template('desayunos.html')
+    def guardar_receta(self, nombre):
+        for receta in self.administrador.recetas:
+            if receta.nombre == nombre and receta not in recetas_favoritas:
+                recetas_favoritas.append(receta)
+                break
+        return redirect('/pagina')  # vuelve a la página después de guardar
 
     def mostrar_perfil(self):
-        return render_template('perfil.html')
+        return render_template('perfil.html', favoritas=recetas_favoritas)
 
 controlador = Controlador()
 controlador.configurar_rutas()
 
-
-
-
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
