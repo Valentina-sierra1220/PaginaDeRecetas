@@ -40,7 +40,7 @@ class Buscador:
 
     def buscar_por_ingrediente(self, termino):
         resultados = []
-        terminos = [t.strip() for t in termino.split(',')]
+        terminos = [t.strip().lower() for t in termino.split(',')]
         for receta in self.recetas:
             for ingrediente in receta.obtener_ingredientes():
                 for t in terminos:
@@ -56,10 +56,22 @@ class Buscador:
 class AdministradorRecetas:
     def __init__(self):
         self.recetas = [
-            Receta("Ensalada", ["lechuga", "tomate", "zanahoria"], ["Lavar", "Cortar", "Mezclar"],"salsas.jpg"),
-            Receta("Tortilla", ["huevo", "papas", "sal"], ["Pelar", "Freír", "Batir"],"salsas.jpg"),
-            Receta("Sopa", ["agua", "pollo", "sal", "zanahoria"], ["Hervir", "Cocinar"], "salsas.jpg"),
-            Receta("Torta De Chocolate", ["huevo", "mantequilla", "chocolate negro", "azucar", "harina de trigo", "sal", "chocolate con leche", "nata liquida"], ["cantidades: Huevo ", "Cocinar"], [], "salsas.jpg"),
+            Receta("Torta De Chocolate", ["huevo", "mantequilla", "chocolate negro", "azucar", "harina de trigo", "sal", "chocolate con leche", "nata liquida"], ["1.Precalienta el horno a 180°C.",
+                                                                                                                                                                                          "2.Coloca el chocolate en tu procesador de alimentos y"
+                                                                                                                                                                                          "rállalo durante varios segundos. Coloca 130 gramos de mantequilla"
+                                                                                                                                                                                          "cortada en trozos y el chocolate rallado y caliente a fuego suave que "
+                                                                                                                                                                                          "el chocolate rallado y calienta a fuego suave hasta que el chocolate se funda."
+                                                                                                                                                                                          "3. Vierte el chocolate fundido en un recipiente y añade el azúcar y las yemas"
+                                                                                                                                                                                          "de huevo.Mezla hasta integrar"
+                                                                                                                                                                                          "4.Añade la harina y mezcla hasta que no queden grumos"
+                                                                                                                                                                                          "5.Ahora monta las claras a punto de nieve con una pizca de sal. Una vez estén montadas, "
+                                                                                                                                                                                          "mézclalas con el chocolate con movimientos envolcantes."
+                                                                                                                                                                                          "6.Engrasa un molde de unos 20 cm de diámetro y rellena con la mezala que acabas de"
+                                                                                                                                                                                          " preparar Hornea a 180°C durante 40 minutos con calor arriba y abajo."
+                                                                                                                                                                                          "7.Sólo queda preparar la cobertura. En un cazo vierte 100 el chocolate con leche,"
+                                                                                                                                                                                          " la nata liquida y el resto de mantequilla. Calienta a fuego medio hasta que"
+                                                                                                                                                                                          " se derrita. Esparce el chocolate por encima del bizcocho y deja que se enfrie. "
+                                                                                                                                                                                          "Decora al gusto"], ["huevos: 6 unidades", "Mantequilla: 150 gramos"], "tortaChocolate.jpg"),
         ]
         self.buscador = Buscador(self.recetas)
 
