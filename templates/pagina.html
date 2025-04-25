@@ -1,4 +1,3 @@
-<!-- templates/pagina.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,8 +8,6 @@
 <body>
 
 <header>
-
-
     <form action="/buscar" method="post">
         <div class="campo-busqueda">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -18,7 +15,6 @@
         </div>
         <button type="submit">Buscar</button>
     </form>
-     <div class="perfil-bola">Perfil</div>
 </header>
 
 <h2>¡Hola, {{ usuario }}!</h2>
@@ -30,9 +26,28 @@
             {% for receta in recetas %}
                 <div class="receta">
                     <h4>{{ receta.nombre }}</h4>
-                    <img src="{{ url_for('static', filename='imagenes/' + receta.imagen) }}" class="imagen-receta" width="200">
-                    <p><strong>Ingredientes:</strong> {{ receta.ingredientes|join(', ') }}</p>
-                    <p><strong>Pasos:</strong> {{ receta.pasos|join(', ') }}</p>
+                    <img src="{{ url_for('static', filename='imagenes/' + receta.imagen) }}" class="imagen-receta" width="300" height="200">
+
+                    <h5><strong>Ingredientes:</strong></h5>
+                    <ul>
+                        {% for ingrediente in receta.ingredientes %}
+                            <li>{{ ingrediente }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <h5><strong>Cantidades:</strong></h5>
+                    <ul>
+                        {% for cantidad in receta.cantidades %}
+                            <li>{{ cantidad }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <h5><strong>Pasos:</strong></h5>
+                    <ol>
+                        {% for paso in receta.pasos %}
+                            <li>{{ paso }}</li>
+                        {% endfor %}
+                    </ol>
                 </div>
             {% endfor %}
         </div>
