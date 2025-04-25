@@ -56,29 +56,38 @@ class Buscador:
 class AdministradorRecetas:
     def __init__(self):
         self.recetas = [
-            Receta("Torta De Chocolate", ["huevo", "mantequilla", "chocolate negro", "azucar", "harina de trigo", "sal", "chocolate con leche", "nata liquida"], ["1.Precalienta el horno a 180°C.",
-                                                                                                                                                                                          "2.Coloca el chocolate en tu procesador de alimentos y"
-                                                                                                                                                                                          "rállalo durante varios segundos. Coloca 130 gramos de mantequilla"
-                                                                                                                                                                                          "cortada en trozos y el chocolate rallado y caliente a fuego suave que "
-                                                                                                                                                                                          "el chocolate rallado y calienta a fuego suave hasta que el chocolate se funda."
-                                                                                                                                                                                          "3. Vierte el chocolate fundido en un recipiente y añade el azúcar y las yemas"
-                                                                                                                                                                                          "de huevo.Mezla hasta integrar"
-                                                                                                                                                                                          "4.Añade la harina y mezcla hasta que no queden grumos"
-                                                                                                                                                                                          "5.Ahora monta las claras a punto de nieve con una pizca de sal. Una vez estén montadas, "
-                                                                                                                                                                                          "mézclalas con el chocolate con movimientos envolcantes."
-                                                                                                                                                                                          "6.Engrasa un molde de unos 20 cm de diámetro y rellena con la mezala que acabas de"
-                                                                                                                                                                                          " preparar Hornea a 180°C durante 40 minutos con calor arriba y abajo."
-                                                                                                                                                                                          "7.Sólo queda preparar la cobertura. En un cazo vierte 100 el chocolate con leche,"
-                                                                                                                                                                                          " la nata liquida y el resto de mantequilla. Calienta a fuego medio hasta que"
-                                                                                                                                                                                          " se derrita. Esparce el chocolate por encima del bizcocho y deja que se enfrie. "
-                                                                                                                                                                                          "Decora al gusto"], ["huevos: 6 unidades", "Mantequilla: 150 gramos"], "tortaChocolate.jpg"),
+            Receta(
+                "Torta De Chocolate",
+                ["huevo", "mantequilla", "chocolate negro", "azúcar", "harina de trigo", "sal", "chocolate con leche",
+                 "nata líquida"],
+                [
+                    "1. Precalienta el horno a 180°C.",
+                    "2. Coloca el chocolate en tu procesador de alimentos y rállalo durante varios segundos.",
+                    "3. Coloca 130 gramos de mantequilla cortada en trozos y el chocolate rallado en un cazo. Calienta a fuego suave hasta que el chocolate se funda.",
+                    "4. Vierte el chocolate fundido en un recipiente y añade el azúcar y las yemas de huevo. Mezcla hasta integrar.",
+                    "5. Añade la harina y mezcla hasta que no queden grumos.",
+                    "6. Monta las claras a punto de nieve con una pizca de sal. Mézclalas con el chocolate con movimientos envolventes.",
+                    "7. Engrasa un molde de unos 20 cm de diámetro y rellénalo con la mezcla. Hornea a 180°C durante 40 minutos con calor arriba y abajo.",
+                    "8. Para la cobertura, vierte el chocolate con leche, la nata líquida y el resto de la mantequilla en un cazo. Calienta a fuego medio hasta que se derrita.",
+                    "9. Esparce el chocolate por encima del bizcocho y deja que se enfríe. Decora al gusto."
+                ],
+                [
+                    "Huevos: 6 unidades",
+                    "Mantequilla: 150 gramos",
+                    "Chocolate negro: 200 gramos",
+                    "Azúcar: 150 gramos",
+                    "Harina de trigo: 150 gramos",
+                    "Sal: una pizca",
+                    "Chocolate con leche: 100 gramos",
+                    "Nata líquida: 100 ml"
+                ],
+                "tortaChocolate.jpg"
+            )
         ]
         self.buscador = Buscador(self.recetas)
 
     def obtener_resultados_busqueda(self, termino):
         return self.buscador.buscar_por_ingrediente(termino)
-
-
 
 
 class Controlador:
