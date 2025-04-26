@@ -142,6 +142,10 @@ class AdministradorFavoritos:
     def __init__(self):
         self.favoritas = []
 
+    def agregar_favorito(self, nombre_receta):
+        if nombre_receta not in self.favoritas:
+            self.favoritas.append(nombre_receta)
+
 
 
 controlador = Controlador()
