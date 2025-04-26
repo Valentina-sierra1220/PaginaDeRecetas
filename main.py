@@ -102,6 +102,7 @@ class Controlador:
         app.route('/desayunos')(self.mostrar_desayunos)
         app.route('/perfil')(self.mostrar_perfil)
 
+
     def buscar(self):
         termino = request.form['busqueda'].lower()
         resultados = self.administrador.obtener_resultados_busqueda(termino)
@@ -146,6 +147,8 @@ class AdministradorFavoritos:
         if nombre_receta not in self.favoritas:
             self.favoritas.append(nombre_receta)
 
+    def obtener_favoritos(self):
+        return self.favoritas
 
 
 controlador = Controlador()
