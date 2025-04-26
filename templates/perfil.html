@@ -5,14 +5,17 @@
     <title>perfil</title>
 </head>
 <body>
-    <div class="RecetasGuardadas">
-    <h1>Recetas Favoritas</h1>
-</div>
 
-    <div class="Listas">
-    <h1>Mis Listas</h1>
-</div>
-
+<h1>Recetas Favoritas</h1>
+{% if recetas_favoritas %}
+    <ul>
+    {% for receta in recetas_favoritas %}
+        <li>{{ receta.nombre }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tienes recetas favoritas guardadas.</p>
+{% endif %}
 
 </body>
 </html>
