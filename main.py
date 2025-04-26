@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request
+from flask import redirect, request, url_for, render_template
 
 app = Flask(__name__)
 
-favoritas_global = []
 # Clase de formulario de inicio de sesión
 class InicioSesion:
     def inicio(self):
@@ -138,6 +137,11 @@ class Controlador:
 
     def mostrar_perfil(self):
         return render_template('perfil.html')
+
+class AdministradorFavoritos:
+    def __init__(self):
+        self.favoritas = []
+
 
 
 controlador = Controlador()
