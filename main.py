@@ -87,10 +87,25 @@ class Controlador:
         self.administrador = AdministradorRecetas()
 
     def configurar_rutas(self):
-        # Asegúrate de usar el decorador `@app.route` para asignar las rutas
         app.route('/')(self.inicio.inicio)
-        app.route('/login', methods=['POST'])(self.inicio.login)
-        app.route('/buscar', methods=['POST'])(self.buscar)
+
+        # Rutas que necesitan self, las definimos con funciones internas
+        @app.route('/login', methods=['POST'])
+        def login():
+            return self.inicio.login()
+
+        @app.route('/buscar', methods=['POST'])
+        def buscar():
+            return self.buscar()
+
+        @app.route('/guardar/<nombre_receta>', methods=['POST'])
+        def guardar_receta(nombre_receta):
+            return self.guardar_receta(nombre_receta)
+
+        @app.route('/perfil')
+        def perfil():
+            return self.mostrar_perfil()
+
         app.route('/batidos')(self.mostrar_batidos)
         app.route('/postres')(self.mostrar_postres)
         app.route('/salsas')(self.mostrar_salsas)
@@ -100,8 +115,6 @@ class Controlador:
         app.route('/fitness')(self.mostrar_fitness)
         app.route('/mexicano')(self.mostrar_mexicanos)
         app.route('/desayunos')(self.mostrar_desayunos)
-        app.route('/perfil')(self.mostrar_perfil)
-
 
     def buscar(self):
         termino = request.form['busqueda'].lower()
