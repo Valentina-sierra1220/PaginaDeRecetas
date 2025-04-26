@@ -1,7 +1,6 @@
-from flask import redirect, request, url_for, render_template
+from flask import Flask, redirect, request, url_for, render_template
 
 app = Flask(__name__)
-
 # Clase de formulario de inicio de sesión
 class InicioSesion:
     def inicio(self):
@@ -151,6 +150,10 @@ class Controlador:
 
     def mostrar_perfil(self):
         return render_template('perfil.html')
+
+    def guardar_receta(self, nombre_receta):
+        self.administrador_favoritos.agregar_favorito(nombre_receta)
+        return redirect(request.referrer or url_for('perfil'))
 
 class AdministradorFavoritos:
     def __init__(self):
