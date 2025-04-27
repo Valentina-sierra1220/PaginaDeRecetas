@@ -1,7 +1,11 @@
-from flask import Flask, redirect, request, url_for, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
-# Clase de formulario de inicio de sesión
+
+#desde aqui la logica
+
+
+#clase de formulario de inicio de sesión
 class InicioSesion:
     def inicio(self):
         return render_template('index.html')
@@ -12,7 +16,11 @@ class InicioSesion:
         return render_template('principal.html', usuario=usuario)
 
 
-# Clase para manejar las recetas
+
+
+
+
+#clase para manejar las recetas
 class Receta:
     def __init__(self, nombre, ingredientes, pasos, cantidades, imagen):
         self.nombre = nombre
@@ -23,6 +31,7 @@ class Receta:
 
     def obtener_ingredientes(self):
         return self.ingredientes
+
 
 
 class Buscador:
@@ -49,17 +58,18 @@ class AdministradorRecetas:
         self.recetas = [
             Receta(
                 "Torta De Chocolate",
-                ["huevo", "mantequilla", "chocolate negro", "azúcar", "harina de trigo", "sal", "chocolate con leche", "nata líquida"],
+                ["huevo", "mantequilla", "chocolate negro", "azúcar", "harina de trigo", "sal", "chocolate con leche",
+                 "nata líquida"],
                 [
-                    "Precalienta el horno a 180°C.",
-                    "Coloca el chocolate en tu procesador de alimentos y rállalo durante varios segundos.",
-                    "Coloca 130 gramos de mantequilla cortada en trozos y el chocolate rallado en un cazo. Calienta a fuego suave hasta que el chocolate se funda.",
-                    "Vierte el chocolate fundido en un recipiente y añade el azúcar y las yemas de huevo. Mezcla hasta integrar.",
-                    "Añade la harina y mezcla hasta que no queden grumos.",
-                    "Monta las claras a punto de nieve con una pizca de sal. Mézclalas con el chocolate con movimientos envolventes.",
-                    "Engrasa un molde de unos 20 cm de diámetro y rellénalo con la mezcla. Hornea a 180°C durante 40 minutos con calor arriba y abajo.",
-                    "Para la cobertura, vierte el chocolate con leche, la nata líquida y el resto de la mantequilla en un cazo. Calienta a fuego medio hasta que se derrita.",
-                    "Esparce el chocolate por encima del bizcocho y deja que se enfríe. Decora al gusto."
+                    "1. Precalienta el horno a 180°C.",
+                    "2. Coloca el chocolate en tu procesador de alimentos y rállalo durante varios segundos.",
+                    "3. Coloca 130 gramos de mantequilla cortada en trozos y el chocolate rallado en un cazo. Calienta a fuego suave hasta que el chocolate se funda.",
+                    "4. Vierte el chocolate fundido en un recipiente y añade el azúcar y las yemas de huevo. Mezcla hasta integrar.",
+                    "5. Añade la harina y mezcla hasta que no queden grumos.",
+                    "6. Monta las claras a punto de nieve con una pizca de sal. Mézclalas con el chocolate con movimientos envolventes.",
+                    "7. Engrasa un molde de unos 20 cm de diámetro y rellénalo con la mezcla. Hornea a 180°C durante 40 minutos con calor arriba y abajo.",
+                    "8. Para la cobertura, vierte el chocolate con leche, la nata líquida y el resto de la mantequilla en un cazo. Calienta a fuego medio hasta que se derrita.",
+                    "9. Esparce el chocolate por encima del bizcocho y deja que se enfríe. Decora al gusto."
                 ],
                 [
                     "Huevos: 6 unidades",
@@ -84,28 +94,11 @@ class Controlador:
     def __init__(self):
         self.inicio = InicioSesion()
         self.administrador = AdministradorRecetas()
-        self.administrador_favoritos = AdministradorFavoritos()
 
     def configurar_rutas(self):
         app.route('/')(self.inicio.inicio)
-
-        # Rutas que necesitan self, las definimos con funciones internas
-        @app.route('/login', methods=['POST'])
-        def login():
-            return self.inicio.login()
-
-        @app.route('/buscar', methods=['POST'])
-        def buscar():
-            return self.buscar()
-
-        @app.route('/guardar/<nombre_receta>', methods=['POST'])
-        def guardar_receta(nombre_receta):
-            return self.guardar_receta(nombre_receta)
-
-        @app.route('/perfil')
-        def perfil():
-            return self.mostrar_perfil()
-
+        app.route('/login', methods=['POST'])(self.inicio.login)
+        app.route('/buscar', methods=['POST'])(self.buscar)
         app.route('/batidos')(self.mostrar_batidos)
         app.route('/postres')(self.mostrar_postres)
         app.route('/salsas')(self.mostrar_salsas)
@@ -115,13 +108,15 @@ class Controlador:
         app.route('/fitness')(self.mostrar_fitness)
         app.route('/mexicano')(self.mostrar_mexicanos)
         app.route('/desayunos')(self.mostrar_desayunos)
+        app.route('/perfil')(self.mostrar_perfil)
 
     def buscar(self):
         termino = request.form['busqueda'].lower()
         resultados = self.administrador.obtener_resultados_busqueda(termino)
         return render_template('pagina.html', usuario="Invitado", recetas=resultados, busqueda_realizada=True)
 
-    # Métodos para mostrar las diferentes categorías
+
+#en la pagina principal la parte de inspirarme
     def mostrar_batidos(self):
         return render_template('batidos.html')
 
@@ -152,24 +147,13 @@ class Controlador:
     def mostrar_perfil(self):
         return render_template('perfil.html')
 
-    def guardar_receta(self, nombre_receta):
-        self.administrador_favoritos.agregar_favorito(nombre_receta)
-        return redirect(request.referrer or url_for('perfil'))
-
-class AdministradorFavoritos:
-    def __init__(self):
-        self.favoritas = []
-
-    def agregar_favorito(self, nombre_receta):
-        if nombre_receta not in self.favoritas:
-            self.favoritas.append(nombre_receta)
-
-    def obtener_favoritos(self):
-        return self.favoritas
-
-
 controlador = Controlador()
 controlador.configurar_rutas()
 
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+
