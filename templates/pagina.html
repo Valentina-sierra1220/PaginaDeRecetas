@@ -49,11 +49,14 @@
                             <li>{{ paso }}</li>
                         {% endfor %}
                     </ol>
-                    <form action="{{ url_for('guardar_receta', nombre_receta=receta.nombre) }}" method="post" class="guardar-icon" aria-label="Guardar receta">
-    <button type="submit" aria-label="Guardar receta">
-        <i class="fa-solid fa-bookmark {% if receta.nombre in favoritas %}guardado{% endif %}"></i>
-    </button>
-</form>
+
+                    <!-- Formulario para guardar receta como favorita -->
+                    <form action="{{ url_for('guardar', nombre_receta=receta.nombre) }}" method="post" style="display:inline;">
+                        <button type="submit" style="background:none; border:none; padding:0;">
+                            <i class="fa-solid fa-bookmark {% if receta.nombre in favoritas %}guardado{% else %}no-guardado{% endif %}"></i>
+                        </button>
+                    </form>
+
 
                 </div>
             {% endfor %}

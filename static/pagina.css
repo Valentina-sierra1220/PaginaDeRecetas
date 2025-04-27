@@ -37,17 +37,14 @@
 
 
 
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
+
+
+.guardado {
+    color: gold;
 }
 
-header form {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
+.no-guardado {
+    color: grey;
 }
 
 
@@ -59,50 +56,3 @@ header form {
 
 
 
-
-
-.contenedor-recetas {
-            position: relative;
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .guardar-icon {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 30px;
-            color: gray;
-            transition: color 0.3s;
-        }
-
-        .guardar-icon:hover {
-            color: gold;
-        }
-
-        .imagen-receta {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        h4 {
-            font-size: 1.5em;
-        }
-
-        h5 {
-            margin-top: 10px;
-        }
-
-        ul, ol {
-            margin-left: 20px;
-        }
-
-        /* Para el ícono de guardado */
-        .guardar-icon-container {
-            text-align: right;
-            margin-top: 10px;
-        }
