@@ -2,10 +2,9 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-#desde aqui la logica
+favoritas = set()
 
-
-#clase de formulario de inicio de sesión
+# Clase de formulario de inicio de sesión
 class InicioSesion:
     def inicio(self):
         return render_template('index.html')
@@ -15,12 +14,7 @@ class InicioSesion:
         correo = request.form['correo']
         return render_template('principal.html', usuario=usuario)
 
-
-
-
-
-
-#clase para manejar las recetas
+# Clase para manejar las recetas
 class Receta:
     def __init__(self, nombre, ingredientes, pasos, cantidades, imagen):
         self.nombre = nombre
@@ -31,8 +25,6 @@ class Receta:
 
     def obtener_ingredientes(self):
         return self.ingredientes
-
-
 
 class Buscador:
     def __init__(self, recetas):
@@ -51,7 +43,6 @@ class Buscador:
                     continue
                 break
         return resultados
-
 
 class AdministradorRecetas:
     def __init__(self):
@@ -89,7 +80,6 @@ class AdministradorRecetas:
     def obtener_resultados_busqueda(self, termino):
         return self.buscador.buscar_por_ingrediente(termino)
 
-
 class Controlador:
     def __init__(self):
         self.inicio = InicioSesion()
@@ -99,6 +89,7 @@ class Controlador:
         app.route('/')(self.inicio.inicio)
         app.route('/login', methods=['POST'])(self.inicio.login)
         app.route('/buscar', methods=['POST'])(self.buscar)
+        app.route('/guardar/<nombre_receta>', methods=['POST'])(self.guardar)
         app.route('/batidos')(self.mostrar_batidos)
         app.route('/postres')(self.mostrar_postres)
         app.route('/salsas')(self.mostrar_salsas)
@@ -113,10 +104,17 @@ class Controlador:
     def buscar(self):
         termino = request.form['busqueda'].lower()
         resultados = self.administrador.obtener_resultados_busqueda(termino)
-        return render_template('pagina.html', usuario="Invitado", recetas=resultados, busqueda_realizada=True)
+        usuario = "Invitado"
+        return render_template('pagina.html', usuario=usuario, recetas=resultados, busqueda_realizada=True,
+                               favoritas=favoritas)
 
+    def guardar(self, nombre_receta):
+        if nombre_receta in favoritas:
+            favoritas.remove(nombre_receta)
+        else:
+            favoritas.add(nombre_receta)
+        return '', 204  # Respuesta vacía para evitar recarga
 
-#en la pagina principal la parte de inspirarme
     def mostrar_batidos(self):
         return render_template('batidos.html')
 
@@ -145,15 +143,10 @@ class Controlador:
         return render_template('desayunos.html')
 
     def mostrar_perfil(self):
-        return render_template('perfil.html')
+        return render_template('perfil.html', favoritas=favoritas)
 
 controlador = Controlador()
 controlador.configurar_rutas()
 
-
-
-
 if __name__ == '__main__':
     app.run(debug=True)
-
-
