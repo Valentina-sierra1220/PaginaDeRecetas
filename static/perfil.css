@@ -1,41 +1,57 @@
+/* Fuente base y fondo */
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: #f9f9fb;
+    margin: 0;
+    padding: 0;
+    color: #2c2c38;
+}
+
+/* Botón para abrir modal */
 .crear-lista-nueva {
     display: flex;
     align-items: center;
-    margin-top: 18px;
-    margin-bottom: 18px;
+    margin-top: 24px;
+    margin-bottom: 24px;
     cursor: pointer;
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 1.2rem;
-    color: #23223a;
+    font-size: 1.3rem;
+    color: #4a4a6a;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    user-select: none;
+}
+
+.crear-lista-nueva:hover,
+.crear-lista-nueva:focus {
+    color: #7a6ffb;
+    outline: none;
 }
 
 .icono-mas {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 32px;
-    height: 32px;
-    border: 2px solid #23223a;
+    width: 36px;
+    height: 36px;
+    border: 2.5px solid #7a6ffb;
     border-radius: 50%;
-    font-size: 1.5rem;
-    margin-right: 12px;
-    font-weight: 500;
+    font-size: 1.6rem;
+    margin-right: 14px;
+    font-weight: 700;
     background: #fff;
-    color: #23223a;
-    transition: background 0.2s, color 0.2s;
+    color: #7a6ffb;
+    box-shadow: 0 4px 12px rgba(122, 111, 251, 0.3);
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
-.crear-lista-nueva:hover .icono-mas {
-    background: #23223a;
+.crear-lista-nueva:hover .icono-mas,
+.crear-lista-nueva:focus .icono-mas {
+    background: #7a6ffb;
     color: #fff;
+    box-shadow: 0 6px 20px rgba(122, 111, 251, 0.6);
 }
 
-.texto-crear {
-    font-weight: 400;
-    letter-spacing: 0.5px;
-}
-
-/* Modal */
+/* Modal fondo */
 .modal-toggle {
     display: none;
 }
@@ -43,14 +59,14 @@
 .modal {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.08);
+    background: rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s;
-    z-index: 1000;
+    transition: opacity 0.35s ease;
+    z-index: 1100;
 }
 
 .modal-toggle:checked + .modal {
@@ -58,62 +74,109 @@
     pointer-events: auto;
 }
 
+/* Contenido del modal */
 .modal-contenido {
     background: #fff;
-    border-radius: 16px;
-    padding: 32px 20px 24px 20px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    width: 90%;
-    max-width: 340px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.form-crear-lista {
-    width: 100%;
+    border-radius: 20px;
+    padding: 36px 28px 32px 28px;
+    box-shadow: 0 18px 48px rgba(122, 111, 251, 0.25);
+    width: 95%;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
 
-.label-nombre {
-    font-size: 0.96rem;
-    color: #888;
-    margin-bottom: 6px;
-    margin-left: 2px;
+/* Formulario */
+.form-crear-receta {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.input-nombre {
-    border: none;
-    border-bottom: 1.5px solid #e0e0e0;
-    background: transparent;
+/* Campos del formulario */
+.campo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label-campo {
     font-size: 1.1rem;
-    padding: 10px 4px 8px 4px;
-    margin-bottom: 36px;
+    font-weight: 700;
+    color: #4a4a6a;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* Inputs y textarea */
+.input-campo {
+    border: none;
+    border-radius: 12px;
+    background: #f5f3ff;
+    font-size: 1.15rem;
+    padding: 14px 18px;
+    color: #2c2c38;
+    font-family: 'Montserrat', Arial, sans-serif;
+    transition: box-shadow 0.3s ease, background 0.3s ease;
     outline: none;
-    color: #23223a;
-    transition: border-color 0.2s;
+    box-shadow: inset 0 0 0 1.8px #d1c3f7;
+    resize: none;
 }
 
-.input-nombre:focus {
-    border-bottom: 1.5px solid #b9aaff;
+.input-campo::placeholder {
+    color: #a8a6c1;
+    font-style: italic;
 }
 
+.input-campo:focus {
+    box-shadow: 0 0 12px 3px #7a6ffb;
+    background: #fff;
+}
+
+/* Textarea específico */
+.textarea-receta {
+    min-height: 90px;
+    max-height: 220px;
+    resize: vertical;
+}
+
+/* Botón crear receta */
 .btn-crear-lista {
-    background: #e8e1fa;
-    color: #7a6fa3;
+    background: linear-gradient(135deg, #7a6ffb, #b9aaff);
+    color: #fff;
+    font-weight: 700;
     border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    padding: 18px 0;
-    margin-top: 8px;
+    border-radius: 14px;
+    font-size: 1.25rem;
+    padding: 16px 0;
     cursor: pointer;
-    width: 100%;
-    transition: background 0.2s;
+    box-shadow: 0 8px 24px rgba(122, 111, 251, 0.5);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
 }
 
-.btn-crear-lista:hover {
-    background: #d1c3f7;
+.btn-crear-lista:hover,
+.btn-crear-lista:focus {
+    background: linear-gradient(135deg, #b9aaff, #7a6ffb);
+    box-shadow: 0 12px 32px rgba(122, 111, 251, 0.7);
+    outline: none;
+}
+
+/* Scrollbar personalizado para textarea */
+.input-campo.textarea-receta::-webkit-scrollbar {
+    width: 8px;
+}
+
+.input-campo.textarea-receta::-webkit-scrollbar-track {
+    background: #f5f3ff;
+    border-radius: 12px;
+}
+
+.input-campo.textarea-receta::-webkit-scrollbar-thumb {
+    background: #7a6ffb;
+    border-radius: 12px;
+}
+
+.input-campo.textarea-receta::-webkit-scrollbar-thumb:hover {
+    background: #b9aaff;
 }
