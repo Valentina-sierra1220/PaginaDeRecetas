@@ -32,10 +32,16 @@
         <!-- Modal -->
         <div class="modal">
             <div class="modal-contenido">
-                <!-- Sin botón de cerrar -->
-                <form class="form-crear-lista" autocomplete="off">
-                    <label for="nombre-receta" class="label-nombre">Ponle un nombre a tu receta:</label>
-                    <input type="text" id="nombre-receta" name="nombre-receta" class="input-nombre" placeholder="Nombre de la receta">
+                <!-- Formulario con Título y Descripción -->
+                <form class="form-crear-receta" autocomplete="off">
+                    <div class="campo-form">
+                        <label for="titulo-receta" class="label-campo">Título</label>
+                        <input type="text" id="titulo-receta" name="titulo-receta" class="input-campo" placeholder="Dale un nombre a tu receta">
+                    </div>
+                    <div class="campo-form">
+                        <label for="descripcion-receta" class="label-campo">Descripción</label>
+                        <textarea id="descripcion-receta" name="descripcion-receta" class="input-campo textarea-receta" placeholder="Escribe tu receta"></textarea>
+                    </div>
                     <button type="submit" class="btn-crear-lista">Crear receta</button>
                 </form>
             </div>
