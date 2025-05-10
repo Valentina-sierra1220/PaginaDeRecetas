@@ -1,0 +1,119 @@
+.crear-lista-nueva {
+    display: flex;
+    align-items: center;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    cursor: pointer;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.2rem;
+    color: #23223a;
+}
+
+.icono-mas {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #23223a;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    margin-right: 12px;
+    font-weight: 500;
+    background: #fff;
+    color: #23223a;
+    transition: background 0.2s, color 0.2s;
+}
+
+.crear-lista-nueva:hover .icono-mas {
+    background: #23223a;
+    color: #fff;
+}
+
+.texto-crear {
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+/* Modal */
+.modal-toggle {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+
+.modal-toggle:checked + .modal {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-contenido {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 20px 24px 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    width: 90%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.form-crear-lista {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.label-nombre {
+    font-size: 0.96rem;
+    color: #888;
+    margin-bottom: 6px;
+    margin-left: 2px;
+}
+
+.input-nombre {
+    border: none;
+    border-bottom: 1.5px solid #e0e0e0;
+    background: transparent;
+    font-size: 1.1rem;
+    padding: 10px 4px 8px 4px;
+    margin-bottom: 36px;
+    outline: none;
+    color: #23223a;
+    transition: border-color 0.2s;
+}
+
+.input-nombre:focus {
+    border-bottom: 1.5px solid #b9aaff;
+}
+
+.btn-crear-lista {
+    background: #e8e1fa;
+    color: #7a6fa3;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    padding: 18px 0;
+    margin-top: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.btn-crear-lista:hover {
+    background: #d1c3f7;
+}
