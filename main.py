@@ -84,6 +84,7 @@ class Controlador:
     def __init__(self):
         self.inicio = InicioSesion()
         self.administrador = AdministradorRecetas()
+        self.recetas_creadas = []
 
     def configurar_rutas(self):
         app.route('/')(self.inicio.inicio)
