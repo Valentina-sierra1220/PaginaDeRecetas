@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>perfil</title>
+    <title>Perfil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='perfil.css') }}">
 </head>
 <body>
     <div class="RecetasGuardadas">
         <h1>Recetas Favoritas</h1>
         {% if favoritas %}
-            {% for receta in favoritas %}
-                <p>{{ receta }}</p>
-            {% endfor %}
+            <ul>
+                {% for receta in favoritas %}
+                    <li>{{ receta }}</li>
+                {% endfor %}
+            </ul>
         {% else %}
             <p>No tienes recetas favoritas guardadas.</p>
         {% endif %}
@@ -18,6 +21,25 @@
 
     <div class="Listas">
         <h1>Mis Listas</h1>
+
+        <!-- Botón para abrir el modal -->
+        <label for="modal-crear-receta" class="crear-lista-nueva">
+            <span class="icono-mas">+</span>
+            <span class="texto-crear">Crea tu propia receta</span>
+        </label>
+        <input type="checkbox" id="modal-crear-receta" class="modal-toggle" />
+
+        <!-- Modal -->
+        <div class="modal">
+            <div class="modal-contenido">
+                <!-- Sin botón de cerrar -->
+                <form class="form-crear-lista" autocomplete="off">
+                    <label for="nombre-receta" class="label-nombre">Ponle un nombre a tu receta:</label>
+                    <input type="text" id="nombre-receta" name="nombre-receta" class="input-nombre" placeholder="Nombre de la receta">
+                    <button type="submit" class="btn-crear-lista">Crear receta</button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>
