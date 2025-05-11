@@ -1,10 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
 favoritas = set()
 
-# Clase de formulario de inicio de sesión
 class InicioSesion:
     def inicio(self):
         return render_template('index.html')
@@ -14,7 +13,6 @@ class InicioSesion:
         correo = request.form['correo']
         return render_template('principal.html', usuario=usuario)
 
-# Clase para manejar las recetas
 class Receta:
     def __init__(self, nombre, ingredientes, pasos, cantidades, imagen):
         self.nombre = nombre
@@ -101,6 +99,7 @@ class Controlador:
         app.route('/mexicano')(self.mostrar_mexicanos)
         app.route('/desayunos')(self.mostrar_desayunos)
         app.route('/perfil')(self.mostrar_perfil)
+        app.route('/crear_receta', methods=['POST'])(self.crear_receta)
 
     def buscar(self):
         termino = request.form['busqueda'].lower()
@@ -114,7 +113,14 @@ class Controlador:
             favoritas.remove(nombre_receta)
         else:
             favoritas.add(nombre_receta)
-        return '', 204  # Respuesta vacía para evitar recarga
+        return '', 204
+
+    def crear_receta(self):
+        titulo = request.form.get('titulo-receta', '').strip()
+        descripcion = request.form.get('descripcion-receta', '').strip()
+        if titulo:
+            self.recetas_creadas.append({'titulo': titulo, 'descripcion': descripcion})
+        return redirect(url_for('mostrar_perfil'))
 
     def mostrar_batidos(self):
         return render_template('batidos.html')
@@ -144,7 +150,16 @@ class Controlador:
         return render_template('desayunos.html')
 
     def mostrar_perfil(self):
-        return render_template('perfil.html', favoritas=favoritas)
+        receta_seleccionada = request.args.get('receta', None)
+        receta_obj = None
+        if receta_seleccionada:
+            for r in self.recetas_creadas:
+                if r['titulo'] == receta_seleccionada:
+                    receta_obj = r
+                    break
+        return render_template('perfil.html', favoritas=favoritas,
+                               recetas_creadas=self.recetas_creadas,
+                               receta_mostrar=receta_obj)
 
 controlador = Controlador()
 controlador.configurar_rutas()

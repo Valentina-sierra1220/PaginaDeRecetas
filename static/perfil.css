@@ -1,4 +1,3 @@
-/* Fuente base y fondo */
 body {
     font-family: 'Montserrat', Arial, sans-serif;
     background-color: #f9f9fb;
@@ -7,7 +6,6 @@ body {
     color: #2c2c38;
 }
 
-/* Botón para abrir modal */
 .crear-lista-nueva {
     display: flex;
     align-items: center;
@@ -51,7 +49,28 @@ body {
     box-shadow: 0 6px 20px rgba(122, 111, 251, 0.6);
 }
 
-/* Modal fondo */
+.crear-receta-bloque {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 24px;
+}
+
+.titulo-receta-enlace {
+    font-weight: 700;
+    color: #7a6ffb;
+    text-decoration: none;
+    font-size: 1.15rem;
+    margin-left: 10px;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.titulo-receta-enlace:hover {
+    color: #4a4a6a;
+    text-decoration: underline;
+}
+
 .modal-toggle {
     display: none;
 }
@@ -74,7 +93,6 @@ body {
     pointer-events: auto;
 }
 
-/* Contenido del modal */
 .modal-contenido {
     background: #fff;
     border-radius: 20px;
@@ -87,14 +105,12 @@ body {
     align-items: stretch;
 }
 
-/* Formulario */
 .form-crear-receta {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-/* Campos del formulario */
 .campo-form {
     display: flex;
     flex-direction: column;
@@ -108,7 +124,6 @@ body {
     font-family: 'Montserrat', Arial, sans-serif;
 }
 
-/* Inputs y textarea */
 .input-campo {
     border: none;
     border-radius: 12px;
@@ -133,14 +148,12 @@ body {
     background: #fff;
 }
 
-/* Textarea específico */
 .textarea-receta {
     min-height: 90px;
     max-height: 220px;
     resize: vertical;
 }
 
-/* Botón crear receta */
 .btn-crear-lista {
     background: linear-gradient(135deg, #7a6ffb, #b9aaff);
     color: #fff;
@@ -162,21 +175,47 @@ body {
     outline: none;
 }
 
-/* Scrollbar personalizado para textarea */
-.input-campo.textarea-receta::-webkit-scrollbar {
-    width: 8px;
+/* Modal descripción receta */
+.modal-descripcion {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: 0 18px 48px rgba(122, 111, 251, 0.25);
+    width: 90%;
+    max-width: 400px;
+    z-index: 1200;
+    color: #23223a;
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
-.input-campo.textarea-receta::-webkit-scrollbar-track {
-    background: #f5f3ff;
-    border-radius: 12px;
+.modal-descripcion h2 {
+    margin-top: 0;
+    font-weight: 700;
+    margin-bottom: 16px;
 }
 
-.input-campo.textarea-receta::-webkit-scrollbar-thumb {
+.modal-descripcion p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.cerrar-modal {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 10px 20px;
     background: #7a6ffb;
+    color: white;
     border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
 }
 
-.input-campo.textarea-receta::-webkit-scrollbar-thumb:hover {
-    background: #b9aaff;
+.cerrar-modal:hover {
+    background: #5c53d1;
 }
