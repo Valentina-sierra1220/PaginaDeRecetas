@@ -1,0 +1,61 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: #fdf6dc;
+    color: #2c2c38;
+    line-height: 1.6;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #b33e8a;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.noticias {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.noticia {
+    background: #fff;
+    padding: 24px 28px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(179, 62, 138, 0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+.noticia:hover {
+    box-shadow: 0 14px 40px rgba(179, 62, 138, 0.3);
+}
+
+.noticia h2 {
+    font-size: 1.8rem;
+    color: #7a6ffb;
+    margin-bottom: 12px;
+}
+
+.noticia p {
+    font-size: 1.1rem;
+    color: #4a4a6a;
+}

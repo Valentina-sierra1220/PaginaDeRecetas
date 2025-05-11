@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <title>Noticias sobre Nutrición</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='enterate.css') }}" />
 </head>
 <body>
+    <header>
+        <h1>Noticias sobre Nutrición</h1>
+    </header>
 
+    <main>
+        <section class="noticias">
+            <article class="noticia">
+                <h2>Beneficios de una dieta equilibrada</h2>
+                <p>Una alimentación balanceada ayuda a mantener el peso ideal, mejora la salud cardiovascular y aumenta la energía diaria.</p>
+            </article>
+
+            <article class="noticia">
+                <h2>Importancia de la hidratación</h2>
+                <p>Beber suficiente agua es esencial para el funcionamiento óptimo del cuerpo, la regulación de la temperatura y la eliminación de toxinas.</p>
+            </article>
+
+            <article class="noticia">
+                <h2>Alimentos ricos en antioxidantes</h2>
+                <p>Frutas como arándanos, fresas y cítricos contienen antioxidantes que protegen las células del daño oxidativo y fortalecen el sistema inmunológico.</p>
+            </article>
+
+            <article class="noticia">
+                <h2>El papel de las fibras en la digestión</h2>
+                <p>Las fibras dietéticas mejoran el tránsito intestinal, previenen el estreñimiento y ayudan a controlar los niveles de colesterol.</p>
+            </article>
+        </section>
+    </main>
 </body>
 </html>
