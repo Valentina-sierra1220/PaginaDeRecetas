@@ -99,6 +99,7 @@ class Controlador:
         app.route('/mexicano')(self.mostrar_mexicanos)
         app.route('/desayunos')(self.mostrar_desayunos)
         app.route('/perfil')(self.mostrar_perfil)
+        app.route('/enterate')(self.mostrar_enterate)
         app.route('/crear_receta', methods=['POST'])(self.crear_receta)
 
     def buscar(self):
@@ -148,6 +149,9 @@ class Controlador:
 
     def mostrar_desayunos(self):
         return render_template('desayunos.html')
+
+    def mostrar_enterate(self):
+        return render_template('enterate.html')
 
     def mostrar_perfil(self):
         receta_seleccionada = request.args.get('receta', None)
